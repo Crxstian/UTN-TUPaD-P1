@@ -98,7 +98,7 @@ numeros_aleatorios = [random.randint(1, 100) for i in range(50)]
 media = mean(numeros_aleatorios)
 mediana = median(numeros_aleatorios)
 moda = mode(numeros_aleatorios)
-
+print("Resultado de ejercicio  6 : ")
 if media > mediana and mediana > moda:
     print("Sesgo positivo o a la derecha")
 elif media < mediana and mediana < moda:
@@ -115,9 +115,7 @@ elif media == mediana and mediana == moda:
 frase_usuario = input("Por favor ingrese una frase o palabra : ")
 if frase_usuario[-1] in "aeiouAEIOU":
     frase_usuario += "!"
-
 print(frase_usuario)
-
 
 # 8) Escribir un programa que solicite al usuario que ingrese su nombre y el número 1, 2 o 3 
 # dependiendo de la opción que desee: 
@@ -128,8 +126,18 @@ print(frase_usuario)
 # usuario e imprimir el resultado por pantalla. Nota: investigue uso de las funciones upper(), 
 # lower() y title() de Python para convertir entre mayúsculas y minúsculas.
 
+usuario_nombre = str(input("Ingrese su nombre: "))
+print(" 1. Si quiere su nombre en mayúsculas. Por ejemplo: PEDRO. ")
+print(" 2. Si quiere su nombre en minúsculas. Por ejemplo: pedro. ")
+print(" 3. Si quiere su nombre con la primera letra mayúscula. Por ejemplo: Pedro. ")
+numero_opcion_usuario = int(input("Ingrese el numero 1, 2 o 3 : "))
 
-
+if numero_opcion_usuario == 1:
+    print(usuario_nombre.upper())
+elif numero_opcion_usuario == 2:
+    print(usuario_nombre.lower())
+else:
+    print(usuario_nombre[:1].upper() +usuario_nombre[1:])
 
 # 9) Escribir un programa que pida al usuario la magnitud de un terremoto, clasifique la 
 # magnitud en una de las siguientes categorías según la escala de Richter e imprima el resultado 
@@ -143,6 +151,19 @@ print(frase_usuario)
 # ● Mayor o igual que 6  y menor que 7: "Muy Fuerte" (puede causar daños significativos). 
 # ● Mayor o igual que 7: "Extremo" (puede causar graves daños a gran escala). 
 
+magnitud_terremoto = int(input("Ingrese la magnitud de un terremoto:  "))
+if magnitud_terremoto < 3:
+    print("Muy leve (imperceptible). ")
+elif magnitud_terremoto >=3 and magnitud_terremoto < 4:
+    print("Leve (ligeramente perceptible)")
+elif magnitud_terremoto >=4 and magnitud_terremoto <5:
+    print("Moderado (sentido por personas, pero generalmente no causa daños). ")
+elif magnitud_terremoto >=5 and magnitud_terremoto < 6:
+    print("Fuerte (puede causar daños en estructuras débiles). ")
+elif magnitud_terremoto >=6 and magnitud_terremoto < 7:
+    print("Muy Fuerte (puede causar daños significativos).")
+else:
+    print("Extremo (puede causar graves daños a gran escala).")
 
 
 # 10) Utilizando la información aportada en la siguiente tabla sobre las estaciones del año
@@ -165,3 +186,31 @@ print(frase_usuario)
 # Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes 
 # del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla 
 # si el usuario se encuentra en otoño, invierno, primavera o verano. 
+
+hemisferio = str(input("Ingrese el hemisferio donde se encuentra N/S: ").upper())
+mes = str(input("Ingrese el mes del anio: ").lower())
+dia = int(input("Ingrese el numero del dia: "))
+estacion = "No definida"
+if hemisferio == "N":
+    if (mes == "diciembre" and dia >= 21) or mes in ["enero", "febrero"] or (mes == "marzo" and dia <= 20):
+        estacion = "Invierno"
+    elif (mes == "marzo" and dia >= 21) or mes in ["abril", "mayo"] or (mes == "junio" and dia <= 20):
+        estacion = "Primavera"
+    elif (mes == "junio" and dia >= 21) or mes in ["julio", "agosto"] or (mes == "septiembre" and dia <= 20):
+        estacion = "Verano"
+    elif (mes == "septiembre" and dia >= 21) or mes in ["octubre", "noviembre"] or (mes == "diciembre" and dia <= 20):
+        estacion = "Otoño"
+elif hemisferio == "S":
+    if (mes == "diciembre" and dia >= 21) or mes in ["enero", "febrero"] or (mes == "marzo" and dia <= 20):
+        estacion = "Verano"
+    elif (mes == "marzo" and dia >= 21) or mes in ["abril", "mayo"] or (mes == "junio" and dia <= 20):
+        estacion = "Otoño"
+    elif (mes == "junio" and dia >= 21) or mes in ["julio", "agosto"] or (mes == "septiembre" and dia <= 20):
+        estacion = "Invierno"
+    elif (mes == "septiembre" and dia >= 21) or mes in ["octubre", "noviembre"] or (mes == "diciembre" and dia <= 20):
+        estacion = "Primavera"
+else:
+    estacion = "Hemisferio no válido"
+
+print(f"Te encuentras en la estación: {estacion}.")
+
