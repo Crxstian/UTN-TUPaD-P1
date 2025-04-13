@@ -37,8 +37,8 @@ print("El total acumulado en sumatoria es : ",sumatoria_ej4)
 
 # 5) Crea un juego en el que el usuario deba adivinar un número aleatorio entre 0 y 9. Al final, el 
 # programa debe mostrar cuántos intentos fueron necesarios para acertar el número. 
-# import random
 
+import random
 numero_aleatorio = random.randint(0,9)
 intentos = 1
 numero_intento = int(input("Por favor ingrese un número entero aleatorio entre 0 y 9: "))
